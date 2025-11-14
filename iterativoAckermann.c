@@ -10,7 +10,7 @@ void ingresoNumeros(int *x,int *y){
 }
 
 int ackermann(int m,int n){
-int stack[MAX_PILA];
+    int stack[MAX_PILA];
     int top = 0; 
     long long n_actual = n; 
     int m_actual = m;
