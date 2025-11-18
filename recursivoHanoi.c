@@ -1,4 +1,4 @@
-/*Problema 10. Recursivo Hanoi*/
+/*Problema 11. Recursivo Hanoi*/
 
 #include <stdio.h>
 

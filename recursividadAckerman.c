@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 void ingresoNumeros(int *x,int *y){
+    printf("Recursivida. Ackermann\n");
     printf("Digite dos numeros enteros: ");
     scanf("%i %i",x,y);
 }

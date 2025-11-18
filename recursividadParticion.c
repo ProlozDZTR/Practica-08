@@ -3,7 +3,8 @@
 #include <stdio.h>
 
 void ingresoNumeros(int *x,int *y){
-    printf("Digite dos numeros");
+    printf("Recursividad. Particion P(m, n)\n");
+    printf("Digite dos numeros (m , n)");
     scanf("%d %d",x,y);
 }
 

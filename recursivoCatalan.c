@@ -1,8 +1,9 @@
-/*6. recursivo catalan*/
+/*7. recursivo catalan*/
 
 #include <stdio.h>
 
 void ingresoNumeros(int *x){
+    printf("Recursividad. catalan\n");
     printf("Digite un numero entero: ");
     scanf("%d",x);
 }

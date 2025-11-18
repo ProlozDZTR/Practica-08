@@ -1,4 +1,4 @@
-/*Problema 8. Recursivo coeficiente binominial*/
+/*Problema 9. Recursivo coeficiente binominial*/
 
 #include <stdio.h>
 
