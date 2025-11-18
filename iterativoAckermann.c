@@ -2,17 +2,19 @@
 
 #include <stdio.h>
 
-#define MAX_PILA 100
+#define MAX_PILA 100000
 
-void ingresoNumeros(int *x,int *y){
+void ingresoNumeros(int *x,unsigned long long *y){
+    printf("Iteratividad. Ackermann\n");
     printf("Digite dos numeros: ");
-    scanf("%d %d",x,y);
+    scanf("%d %llu",x,y);
 }
 
-int ackermann(int m,int n){
-    int stack[MAX_PILA];
+unsigned long long ackermann(int m,unsigned long long n){
+long long stack[MAX_PILA];
     int top = 0; 
-    long long n_actual = n; 
+    
+    unsigned long long n_actual = n; 
     int m_actual = m;
 
     if (m < 0 || n < 0) {
@@ -23,24 +25,28 @@ int ackermann(int m,int n){
     stack[top++] = m_actual; 
 
     while (top > 0) {
-        m_actual = stack[top - 1]; 
+        
+        m_actual = stack[--top]; 
         
         if (m_actual == 0) {
             n_actual = n_actual + 1;
-            top--; 
             
         } else if (n_actual == 0) {
-            stack[top - 1] = m_actual - 1; 
+            stack[top++] = m_actual - 1; 
             n_actual = 1; 
             
         } else {
-            n_actual = n_actual - 1; 
-
-            if (top >= MAX_PILA) {
+            
+            if (top + 2 >= MAX_PILA) {
                 printf("\nERROR: Desbordamiento de pila. Los numeros son muy grandes.\n");
                 return -1; 
             }
+            
             stack[top++] = m_actual - 1;
+            
+            stack[top++] = m_actual;
+            
+            n_actual = n_actual - 1; 
         }
     }
     
@@ -48,13 +54,17 @@ int ackermann(int m,int n){
 }
 
 void ejecutarPrograma(){
-    long long resultado;
-    int numUno = 0,numDos = 0;
+    unsigned long long resultado;
+    int numUno = 0;
+    unsigned long long numDos = 0; 
 
-    ingresoNumeros(&numUno,&numDos);
-    resultado = ackermann(numUno,numDos);
-
-    printf("El ackermann de %d y %d es: %lld",numUno,numDos,resultado);
+    ingresoNumeros(&numUno, &numDos);
+    
+    resultado = ackermann(numUno, numDos);
+    
+    if (resultado != -1) {
+        printf("El ackermann de %d y %llu es: %llu\n", numUno, numDos, resultado);
+    }
 }
 
 int main(int argc, char const *argv[]) {
